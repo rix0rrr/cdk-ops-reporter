@@ -9,13 +9,14 @@
 ```typescript
 import { OpsReporter } from 'cdk-ops-reporter'
 
-new OpsReporter(scope: Construct, id: string)
+new OpsReporter(scope: Construct, id: string, props?: OpsReporterProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk-ops-reporter.OpsReporter.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#cdk-ops-reporter.OpsReporter.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-ops-reporter.OpsReporter.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-ops-reporter.OpsReporterProps">OpsReporterProps</a></code> | *No description.* |
 
 ---
 
@@ -28,6 +29,12 @@ new OpsReporter(scope: Construct, id: string)
 ##### `id`<sup>Required</sup> <a name="id" id="cdk-ops-reporter.OpsReporter.Initializer.parameter.id"></a>
 
 - *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="cdk-ops-reporter.OpsReporter.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#cdk-ops-reporter.OpsReporterProps">OpsReporterProps</a>
 
 ---
 
@@ -183,6 +190,39 @@ import { OpsReporterProps } from 'cdk-ops-reporter'
 const opsReporterProps: OpsReporterProps = { ... }
 ```
 
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk-ops-reporter.OpsReporterProps.property.federationImpliesConsole">federationImpliesConsole</a></code> | <code>boolean</code> | Drop the domain from the federation link. |
+| <code><a href="#cdk-ops-reporter.OpsReporterProps.property.federationLink">federationLink</a></code> | <code>string</code> | Federation link with '{}' as placeholder. |
+
+---
+
+##### `federationImpliesConsole`<sup>Optional</sup> <a name="federationImpliesConsole" id="cdk-ops-reporter.OpsReporterProps.property.federationImpliesConsole"></a>
+
+```typescript
+public readonly federationImpliesConsole: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Drop the domain from the federation link.
+
+---
+
+##### `federationLink`<sup>Optional</sup> <a name="federationLink" id="cdk-ops-reporter.OpsReporterProps.property.federationLink"></a>
+
+```typescript
+public readonly federationLink: string;
+```
+
+- *Type:* string
+
+Federation link with '{}' as placeholder.
+
+---
 
 
 

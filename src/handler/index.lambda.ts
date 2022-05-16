@@ -88,6 +88,12 @@ function federate(link: string) {
 }
 
 function renderResponse(response: HandlerResponse): string {
+  const container = {
+    'display': 'flex',
+    'flex-wrap': 'wrap',
+    'align-items': 'stretch',
+    'gap': '10px',
+  };
   const base = {
     'font-family': 'Verdana,Arial,Helvetica,sans-serif',
     'font-size': 'x-small',
@@ -96,24 +102,26 @@ function renderResponse(response: HandlerResponse): string {
     'text-align': 'center',
     'overflow': 'hidden',
     'width': '15em',
-    'margin': '10px',
+    'text-decoration': 'none',
   };
   const redStyle = { 'background-color': '#FFBBBB', 'border': '1px solid red', 'color': 'red' };
   const greenStyle = { 'background-color': '#BBFFBB', 'border': '1px solid green', 'color': '#669966' };
 
   const ret = new Array<string>();
+  ret.push(`<div style="${styles(container)}">`);
   for (const pipe of response.pipelines) {
     ret.push(renderCell(pipe.displayName, pipe.red, pipe.link));
   }
   for (const alarm of response.alarms) {
     ret.push(renderCell(alarm.displayName, alarm.red, alarm.link));
   }
+  ret.push('</div>');
   return ret.join('');
 
   function renderCell(text: string, red: boolean, link?: string) {
     return [
       `<div style="${styles({ ...base, ...red ? redStyle : greenStyle })}">`,
-      ...link ? [`<a href="${escapeHTML(link)}">`] : [],
+      ...link ? [`<a href="${escapeHTML(link)}" target="_blank" style="color: inherit; text-decoration: inherit">`] : [],
       escapeHTML(text),
       ...link ? ['</a>'] : [],
       '</div>',
