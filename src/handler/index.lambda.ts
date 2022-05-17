@@ -97,7 +97,7 @@ function renderResponse(response: HandlerResponse): string {
   const base = {
     'font-family': 'Verdana,Arial,Helvetica,sans-serif',
     'font-weight': 'bold',
-    'padding': '1px 8px',
+    'padding': '0.2em',
     'text-align': 'center',
     'overflow': 'hidden',
     'width': '15em',
@@ -119,7 +119,7 @@ function renderResponse(response: HandlerResponse): string {
 
   function renderCell(text: string, red: boolean, link?: string) {
     return [
-      `<div style="${styles({ ...base, ...red ? redStyle : greenStyle })}">`,
+      `<div style="${styles({ ...base, ...red ? redStyle : greenStyle })}" title="${escapeHTML(text)}">`,
       ...link ? [`<a href="${escapeHTML(link)}" target="_blank" style="color: inherit; text-decoration: inherit">`] : [],
       escapeHTML(text),
       ...link ? ['</a>'] : [],
