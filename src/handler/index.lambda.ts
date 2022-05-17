@@ -96,7 +96,6 @@ function renderResponse(response: HandlerResponse): string {
   };
   const base = {
     'font-family': 'Verdana,Arial,Helvetica,sans-serif',
-    'font-size': 'x-small',
     'font-weight': 'bold',
     'padding': '1px 8px',
     'text-align': 'center',
