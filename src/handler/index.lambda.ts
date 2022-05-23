@@ -21,6 +21,7 @@ export async function handler(ev: APIGatewayEvent): Promise<APIGatewayProxyResul
       body: renderResponse(response),
       headers: {
         'Content-Type': 'text/html',
+        'Cache-Control': 'max-age=300',
       },
     };
   }
@@ -30,6 +31,7 @@ export async function handler(ev: APIGatewayEvent): Promise<APIGatewayProxyResul
     body: JSON.stringify(response),
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'max-age=300',
     },
   };
 }
